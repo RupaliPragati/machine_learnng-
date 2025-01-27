@@ -1,49 +1,71 @@
-body {
-    background-image: url("image.png");
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-right: 150px;
-    margin-left: 500px;
-  } 
-  
-  h1 {
-    color:#4CAF50;
-      margin-left:100px;
-  }
-  input{
-    color:blue;
-    width: 70%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-bottom: 4px solid aqua;
-  }
-  button {
-    
-    background-color: #4CAF50; /* Green */
-    margin : auto;
-    color: white;
-    padding: 15px 100px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-left:50px
-  }
-  
-  label {
-    margin : auto;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px; 
-    font-weight: bold;
-    color: rgb(48, 231, 12);
-    border: 2cm;
-    width: 70%;
-    margin: 8px 0;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border-bottom: 4px solid aqua;
-    background-color: aqua;
-  }
+  /* Background gradient */
+        body {
+            background: url(image.png);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Form elements styling */
+        .form-label {
+            font-weight: 500;
+            color: #000000;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 5px rgba(7, 168, 155 0.7);
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #2575fc;
+            border-color: #2575fc;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #1f64c3;
+            border-color: #1f64c3;
+        }
+
+        .btn-primary:focus {
+            box-shadow: 0 0 5px rgba(37, 117, 252, 0.7);
+        }
+        p{
+        color: white;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+            max-width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
