@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebola Prediction Model</title>
+    <title>Death Prediction Model</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <style>
         /* Reset */
@@ -16,7 +16,7 @@
         body {
             font-family: Arial, sans-serif;
             /* background: linear-gradient(to right, #ff0000, #000000); */
-            background-image: url(./img/img2.jpg);
+            background-image: url(https://images.pexels.com/photos/1096925/pexels-photo-1096925.jpeg?auto=compress&cs=tinysrgb&w=600 );
             background-repeat: no-repeat;
             background-position: fixed;
             background-size: cover;
@@ -55,9 +55,36 @@
             font-size: 1.8rem;
             text-align: center;
             margin-bottom: 20px;
-            background-color: rgba(0, 0, 0, 0.3);
+<!--            background-color: rgba(0, 0, 0, 0.3);-->
             border-radius: 10px;
-        }
+         overflow: hidden;
+  white-space: nowrap;
+
+  font-family: Arial, sans-serif;
+
+  animation: typing 3s steps(28, end), blink 0.5s step-end infinite;
+}
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 28ch;
+  }
+}
+
+
+@keyframes blink {
+  from {
+    border-color: black;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
 
         .form-group {
             margin-bottom: 15px;
@@ -86,23 +113,46 @@
             border-color: #55f1ff;
             box-shadow: 0 0 5px rgba(255, 85, 85, 0.5);
         }
+.button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
 
         button {
-            background: #33b622;
+         background: #33b622;
             color: #fff;
+            flex: 1;
             padding: 10px 15px;
             font-size: 1rem;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s;
-            width: 100%;
         }
 
         button:hover {
-            background: #1cdb02;
             color: #000;
         }
+
+        .reset-button {
+            background: #aa0505;
+        }
+
+.reset-button:active{
+background: #ff0202;
+}
+  .predict-button {
+            background: #057d25;
+        }
+
+.predict-button:active{
+background: #02fa44;
+}
+
+
+
 
         .result {
             margin-top: 20px;
@@ -117,23 +167,9 @@
             font-size: 1rem;
         }
 
-        .reset-button {
-            margin-top: 10px;
-            background: #ce0202;
-            color: #fff;
-            padding: 10px 15px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-        }
 
-        .reset-button:hover {
-            background: #ff0000;
 
-        }
+
 
         @media (max-width: 480px) {
             h2 {
@@ -144,26 +180,53 @@
                 font-size: 0.9rem;
             }
         }
+
+
+
     </style>
 </head>
 <body>
-    <h1>Ebola Prediction Model</h1>
-    <form id="predictionForm">
-        <label for="latitude">Latitude:</label>
-        <input type="number" id="latitude" name="latitude" step="any" required>
+    <div class="container">
+        <h1>Death Prediction Model</h1>
+    
+        <!-- Input Form -->
+       <form id="predictionForm">
+    <div class="form-group">
+        <label for="latitude"></label>
+        <input type="text" id="latitude" name="latitude" placeholder="Latitude" required>
+    </div>
+    <div class="form-group">
+        <label for="longitude"></label>
+        <input type="text" id="longitude" name="longitude" placeholder="Longitude" required>
+    </div>
+    <div class="form-group">
+        <label for="population"></label>
+        <input type="number" id="population" name="population" placeholder="Population" required>
+    </div>
+    <div class="button-container">
+        <button type="submit" id="predictButton" class="predict-button">Predict</button>
+        <button type="reset" id="resetButton" class="reset-button">Reset</button>
+    </div>
 
-        <label for="longitude">Longitude:</label>
-        <input type="number" id="longitude" name="longitude" step="any" required>
+</form>
+    
+        <!-- Prediction Result -->
+        <div class="result" id="result">
+            <p>Death Prediction Model:</p>
+            <p><strong id="predictionValue">0</strong></p>
+            <p>Latitude: <span id="latValue"></span></p>
+            <p>Longitude: <span id="longValue"></span></p>
+            <p>Deaths: <span id="deathsValue"></span></p>
+        </div>
+    </div>
 
-        <label for="population">Population:</label>
-        <input type="number" id="population" name="population" required>
-
-        <button type="submit">Predict</button>
-    </form>
-
-    <div id="result"></div>
 
     <script>
+
+
+
+
+
         $(document).ready(function() {
             $('#predictionForm').submit(function(e) {
                 e.preventDefault();
