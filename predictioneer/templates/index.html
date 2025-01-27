@@ -5,14 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ebola Prediction Model</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-        h1 { color: #333; }
-        form { margin-bottom: 20px; }
-        label { display: block; margin-top: 10px; }
-        input { width: 100%; padding: 5px; margin-top: 5px; }
-        button { margin-top: 10px; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-        #result { margin-top: 20px; }
+   <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            /* background: linear-gradient(to right, #ff0000, #000000); */
+            background-image: url(./img/img2.jpg);
+            background-repeat: no-repeat;
+            background-position: fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            padding: 20px 30px;
+            max-width: 400px;
+            width: 100%;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #dee5e0;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 3px solid #bcb6b6;
+            border-radius: 8px;
+            outline: none;
+            background: #333;
+            color: #fff;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #55f1ff;
+            box-shadow: 0 0 5px rgba(255, 85, 85, 0.5);
+        }
+
+        button {
+            background: #33b622;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #1cdb02;
+            color: #000;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #1a1a1a;
+            border-left: 5px solid #03d022;
+            border-radius: 8px;
+        }
+
+        .result p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .reset-button {
+            margin-top: 10px;
+            background: #ce0202;
+            color: #fff;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .reset-button:hover {
+            background: #ff0000;
+
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            input, button {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
